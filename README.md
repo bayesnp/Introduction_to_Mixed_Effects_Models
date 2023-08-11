@@ -23,6 +23,6 @@ Goals:
 
 Notes:
   - The same methods are called different names in different fields
-  - Mixed-effects models in Statistics (Laird & Ware, 1982)
-  - Hierarchical Linear Models (HLM) in Psychology, popularized by Bryk & Raudenbush
-  - Multilevel/hierarchical models (Gelman & Hill, 2007)
+	1. Mixed-effects models in Statistics (Laird & Ware, 1982)
+  	2. Hierarchical Linear Models (HLM) in Psychology, popularized by Bryk & Raudenbush
+   	3. Multilevel/hierarchical models (Gelman & Hill, 2007)
