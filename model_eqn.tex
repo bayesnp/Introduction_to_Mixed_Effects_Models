@@ -1,0 +1,84 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+%
+% Above directives are recognized by TeXShop.  See detailed explanation
+% on these and more:
+% https://tex.stackexchange.com/questions/78101/when-and-why-should-i-use-tex-ts-program-and-tex-encoding
+%
+%%%% Place this as the first line to force TeXShop to save file as UTF-i
+\documentclass{article}
+\usepackage{amsmath}     % higher math, aligned math equations
+\usepackage{mathtools}   % aligned columns in bracketed \bmatrix in amsmath
+\usepackage{amssymb}
+\usepackage{bm}          % bm gives you nice-looking \boldsymbol{y}
+\usepackage{hyperref}    % allow ~ in \url{} better than \usepackage{url}
+\usepackage{graphicx}    % graphicx allows you to define several 
+% directories to be searched for figures. Each path has to end 
+% with a / and be enclosed in curly braces { } even if only 
+% one path is specified. Only the specified directories will 
+% be searched and not their subdirectories.
+\graphicspath{{\string~/resh/ahles/apoe/allostatic/icctf23/tex/figs/}{\string~/resh/ahles/apoe/allostatic/R.salth/}{./figures/}}
+% NOTE: \string~ instead of simple ~
+
+\title{Model Equations for the \texttt{Orthodont} Example}
+\author{Yuelin Li$^1$ $^2$}
+\date{%
+    $^1$ Department of Psychiatry \& Behavioral
+Sciences, Memorial Sloan Kettering Cancer Center
+    \\%
+    $^2$
+    Department of Epidemiology \& Biostatistics, MSKCC
+    \\[2ex]%
+    \today
+}
+
+\begin{document}
+\maketitle
+
+\section{Growth Curve Model}
+
+\begin{equation}
+\begin{aligned}
+        y_{it} &=
+        \beta_{0} + \beta_{1} \mathrm{Age}_i + 
+        b_{0i} + b_{1i} \mathrm{Age}_i + \epsilon_{it}  \\
+        & \qquad 
+        i = 1, \dots, n, \quad t = 1, 2, 3, 4 \\ 
+        & \qquad \mathbf{b}_i  =  
+                     \begin{bmatrix}
+                     b_{0i}\\
+                     b_{1i}
+                    \end{bmatrix} \sim N(0, \Psi), \quad
+      \Psi = \begin{bmatrix}
+                 \sigma_{00}^2 & \sigma_{01} \\
+                 \sigma_{01}     & \sigma_{11}^2 
+                 \end{bmatrix},  \\
+    & \qquad \epsilon_{it} \sim N(0, \sigma_{e}^2),
+	\label{EQ:ORTH}
+\end{aligned}
+\end{equation}
+where growth data $y$ from the $i$th child at time $t$ is a function of 
+Age (centered at 11 years of age). The fixed intercept $\beta_0$ 
+represents the model-estimated average growth at age 11 and
+the fixed slope $\beta_1$ represents the estimated average rowth rate
+per year. The random intercepts $b_{0i}$ and the
+random slopes $b_{1i}$ represent, respectively, each child's unique
+intercept and slope (as compared to the averages in $\beta_0$ and 
+$\beta_1$).
+
+\section{R Syntax}
+\begin{verbatim}
+orth_vintslope <- lmer(distance ~ I(age - 11) + (1 + I(age - 11) | Subject),
+     data = orth)
+\end{verbatim}
+
+\section{SPSS Syntax}
+\texttt{
+MIXED distance WITH age  \\
+/FIXED INTERCEPT age      \\
+/RANDOM INTERCEPT age | SUBJECT(Subject) COVTYPE(ID)  \\
+/PRINT SOLUTION TESTCOV.
+}
+
+
+\end{document}
