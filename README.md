@@ -3,7 +3,7 @@
 Mixed-effects models (MIXED) are different from methods like Generalized Linear Models (GLM) and repeated-measures ANOVA. The main differences are that MIXED handles correlated data and unequal variances.
 
 Correlated data are very common in behavioral research
-  - Repeated measurements of survey respondents or experimental subjects
+  - Repeated measurements of survey respondents or experimental subjects (e.g., https://stats.oarc.ucla.edu/sas/library/sas-libraryrepeated-measures-anova-using-sas-proc-glm/)
   - MIXED extends repeated measures ANOVA in GLM 
 	1. Allow an unequal number of repetitions
 	2. Complex nesting hierarchy, e.g, students nested in schools and then nested in a school district
