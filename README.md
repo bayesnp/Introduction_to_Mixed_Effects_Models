@@ -5,14 +5,12 @@ Mixed-effects models (MIXED) are different from methods like Generalized Linear 
 Correlated data are very common in behavioral research
   - Repeated measurements of survey respondents or experimental subjects
   - MIXED extends repeated measures ANOVA in GLM 
-	   1. Allow an unequal number of repetitions
-		2. Complex nesting hierarchy, e.g, students nested in schools and
-		   then nested in a school district
+	1. Allow an unequal number of repetitions
+	2. Complex nesting hierarchy, e.g, students nested in schools and then nested in a school district
 
 Today, we learn by going over examples:
   - Orthodontic growth curves in children
-  - Bryk & Raudenbush (2002) Math Achievement 
-    (this is a classic example)
+  - Bryk & Raudenbush (2002) Math Achievement (this is a classic example)
   - Ahles et al. (2014): changes in neurocognitive performance after cancer
 
 Goals: 
@@ -25,7 +23,6 @@ Goals:
 
 Notes:
   - The same methods are called different names in different fields
-	 . Mixed-effects modeling in Statistics (Laird & Ware, 1982)
-	 . Hierarchical Linear Modeling (HLM) in Psychology, popularized 
-	   by Bryk & Raudenbush
-	 . Multilevel/hierarchical models (Gelman & Hill, 2007)
+  - Mixed-effects models in Statistics (Laird & Ware, 1982)
+  - Hierarchical Linear Models (HLM) in Psychology, popularized by Bryk & Raudenbush
+  - Multilevel/hierarchical models (Gelman & Hill, 2007)
